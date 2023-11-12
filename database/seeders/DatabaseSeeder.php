@@ -16,10 +16,13 @@ class DatabaseSeeder extends Seeder
          \App\Models\Drug::factory(10)->create();
          \App\Models\Product::factory(200)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('12345678'),
+
+
+
+        $this->call([
+            AdminSeeder::class,
+            UserSeeder::class,
+            PlanSeeder::class,
         ]);
         $this->call([
             VendorSeeder::class,

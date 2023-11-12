@@ -42,4 +42,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function commissions()
+    {
+        return $this->hasMany(Commission::class,'user_id','id');
+    }
+    public function subscribers()
+    {
+        return $this->hasMany(Subscription::class,'user_id','id');
+    }
+
+
+
 }
